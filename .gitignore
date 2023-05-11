@@ -1,0 +1,7 @@
+lab1/test/*
+lab1/train/*
+
+lab1/test_processed/*
+lab1/train_processed/*
+
+*.pickle
