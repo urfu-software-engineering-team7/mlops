@@ -1,7 +1,0 @@
-version: "3.3"
-
-services:
-  fastapi-helloworld:
-    build: .
-    ports:
-        - 8000:8000
