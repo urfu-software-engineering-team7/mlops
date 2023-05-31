@@ -1,13 +1,17 @@
-FROM python:3.9-bullseye
+FROM python:3.9
+
+RUN apt update
+
+RUN apt install uvicorn -y
 
 RUN mkdir -m 777 /app
 
 WORKDIR /app
 
-COPY . /app
+COPY requirements.txt .
 
-RUN pip install poetry==1.4.0
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN poetry --no-root install
+COPY . .
 
-ENTRYPOINT ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0"]
+ENTRYPOINT ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

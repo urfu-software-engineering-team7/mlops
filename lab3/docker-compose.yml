@@ -1,7 +1,9 @@
-version: "3.3"
+version: '3.3'
 
 services:
-  fastapi-helloworld:
-    build: .
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-        - 8000:8000
+      - 8000:8000
